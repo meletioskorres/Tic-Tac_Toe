@@ -28,7 +28,27 @@ while check:
     elif board[guess_row][guess_column] == "_":
         board[guess_row][guess_column] = "X"
         
-    
+    #Check Win
+    for row in range(len(board)):
+        if board[row][0] == board[row][1] == board[row][2] and board[row][0] != "_":
+            print(f"{board[row][0]} wins")
+            check = False
+    if check :
+        for col in range(len(board)):
+            if board[0][col] == board[1][col] == board[2][col] and board[0][col] != "_":
+                print(f"{board[0][col]} wins")
+                check = False
+    if check: 
+        if board[0][0] == board[1][1] == board[2][2] and board[0][0] != "_":
+            print(f"{board[0][0]} wins")
+            check = False
+    if check:
+        if board [0][2] == board[1][1] == board[2][0] and board[0][2] != "_":
+            print(f"{board[0][2]} wins")
+            check = False
+
+    if not check: break
+
     #"AI"s turn:
     choice = True
     while choice:
@@ -37,9 +57,6 @@ while check:
         if board[guess_row_bot][guess_col_bot] == "_":
             board[guess_row_bot][guess_col_bot] = "O"
             choice = False
-
-
-    #Find winner:
 
     choice = True
 
