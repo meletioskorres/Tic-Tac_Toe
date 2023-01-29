@@ -47,6 +47,11 @@ while check:
             print(f"{board[0][2]} wins")
             check = False
 
+    if check:
+        if "_" not in [cell for row in board for cell in row]:
+            print("Tie")
+            check = False
+
     if not check: break
 
     #"AI"s turn:
